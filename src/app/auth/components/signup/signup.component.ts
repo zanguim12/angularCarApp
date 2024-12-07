@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd/message'
 import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-signup',
   standalone: true,
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLink
   ],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss'
@@ -47,7 +49,7 @@ export class SignupComponent {
 
   register(): void {
     console.log(this.signupForm.value)
-    this.authService.register(this.signupForm.value).subscribe(
+    this.authService.register(this.signupForm.value.name, this.signupForm.value.email, this.signupForm.value.password).subscribe(
       res => {
         console.log('res', res)
 

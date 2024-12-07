@@ -27,13 +27,26 @@ export class AdminDashboardComponent {
   }
 
   getAllCars() {
-    this.adminService.getAllCars().subscribe(res => {
-      res.forEach((car: any) => {
-        car.processedImage = `data:image/jpeg;base64,${car.returnedImage}`
-        this.cars.push(car)
-      })
-    })
+    this.adminService.getAllCars().subscribe({
+      next: (res) => {
+        this.cars = res;
+      },
+      error: (err) => {
+        this.message.error('Failed to load cars');
+        console.error('Error fetching cars:', err);
+      }
+    });
   }
+
+
+  // getAllCars() {
+  //   this.adminService.getAllCars().subscribe(res => {
+  //     res.forEach((car: any) => {
+  //       car.processedImage = `data:image/jpeg;base64,${car.returnedImage}`
+  //       this.cars.push(car)
+  //     })
+  //   })
+  // }
 
   deleteCar(id: number) {
     this.adminService.deleteCar(id).subscribe(res => {

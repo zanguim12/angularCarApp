@@ -1,28 +1,49 @@
-<div style="background-color: #f8f8f8; min-height: 91vh; padding: 24px;">
-  <div style="padding-top: 10px;"></div>
+<div class="items-center justify-center" style="background-color: #f8f8f8; min-height: 91vh; padding: 24px;">
+  <!-- Grille des cartes -->
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1">
+    <!-- Boucle sur les voitures -->
+    <div
+      *ngFor="let car of cars"
+      class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-1">
 
-  <div style="margin-top: 10px;" class="child" *ngFor="let car of cars">
-    <div nz-row style="background-color: #ccc; padding: 24px;">
-      <div nz-col nzSpan="8">
-        <img class="profile" style="height: 130px; border-radius: 10px; object-fit: cover;" [src]="car.processedImage"
-          alt="profile">
+      <!-- Image de la voiture -->
+      <div class="mb-4">
+        <img
+          class="w-full h-32 object-cover rounded-lg"
+          [src]="car.processedImage"
+          alt="profile" />
       </div>
 
-      <div nz-col nzSpan="16">
-        <h2 style="cursor: pointer; color: #108ee9;">{{car.brand}} - {{car.name}}</h2>
-
-        <p>{{car.description}}</p>
-
-        <hr>
-
-        <h5>Price: <b>${{car.price}}</b> - Color : <b>{{car.color}}</b> - Transmission : <b>{{car.transmission}}</b> -
-          Type : <b>{{car.type}}</b> - Year : <b>{{car.year}}</b>
+      <!-- Contenu textuel -->
+      <div>
+        <h2
+          class="mb-2 text-lg font-bold text-blue-600 hover:underline cursor-pointer">
+          {{car.brand}} - {{car.name}}
+        </h2>
+        <p class="mb-3 text-gray-700 dark:text-gray-400">
+          {{car.description}}
+        </p>
+        <hr class="mb-2">
+        <h5>
+          <span>Price: <b>${{car.price}}</b></span><br>
+          <span>Color: <b>{{car.color}}</b></span><br>
+          <span>Transmission: <b>{{car.transmission}}</b></span><br>
+          <span>Type: <b>{{car.type}}</b></span><br>
+          <span>Year: <b>{{car.year}}</b></span>
         </h5>
+      </div>
 
-        <div style="float: right;">
-          <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary"
-            routerLink="/customer/book/{{car.id}}">Book</button>
-        </div>
+      <!-- Bouton d'action -->
+      <div class="mt-4 flex justify-end">
+        <button
+          class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          nzSize="small"
+          nz-button
+          nzType="primary"
+          routerLink="/customer/book/{{car.id}}">
+          Book
+        </button>
       </div>
     </div>
   </div>

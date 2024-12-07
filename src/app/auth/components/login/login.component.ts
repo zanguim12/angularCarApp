@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { StorageService } from '../../services/storage/storage.service';
 import { CommonModule } from '@angular/common';
 import { NzMessageModule, NzMessageService } from 'ng-zorro-antd/message';
@@ -13,7 +13,8 @@ import { NzMessageModule, NzMessageService } from 'ng-zorro-antd/message';
     CommonModule,
     FormsModule,
     NzMessageModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLink
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
@@ -54,10 +55,10 @@ export class LoginComponent {
           return
         }
 
-        if (StorageService.isCustomerLoggedIn()) {
+         if (StorageService.isCustomerLoggedIn()) {
           this.router.navigateByUrl('/customer/dashboard')
           return
-        }
+         }
 
         this.message.error('Bad credentials', {
           nzDuration: 3000

@@ -22,7 +22,10 @@ export class StorageService {
   }
 
   static getToken(): string | null {
-    return localStorage.getItem(TOKEN)
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem(TOKEN)
+    }
+    return null;
   }
 
   static getUser(): any {
@@ -46,15 +49,17 @@ export class StorageService {
   }
 
   static isAdminLoggedIn(): boolean {
-    if (this.getToken() == null) return false
+     if (this.getToken() == null) return false
 
-    return this.getUserRole() === 'ADMIN'
+     return this.getUserRole() === 'ADMIN'
+
   }
 
   static isCustomerLoggedIn(): boolean {
-    if (this.getToken() == null) return false
+     if (this.getToken() == null) return false
 
-    return this.getUserRole() === 'CUSTOMER'
+    return this.getUserRole() === 'USER'
+
   }
 
   static logout() {

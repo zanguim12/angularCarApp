@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { StorageService } from './auth/services/storage/storage.service';
 import { CommonModule } from '@angular/common';
 
@@ -8,7 +8,8 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [
     CommonModule,
-    RouterOutlet
+    RouterOutlet,
+    RouterLink
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

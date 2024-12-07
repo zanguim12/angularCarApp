@@ -12,44 +12,44 @@ export class AdminService {
   constructor(private http: HttpClient) {}
 
   postCar(carDto: any): Observable<any> {
-    return this.http.post(`${BASIC_URL}/api/admin/car`, carDto, {
+    return this.http.post(`${BASIC_URL}/cars`, carDto, {
       headers: this.createAuthorizationHeader()
     })
   }
 
   getAllCars(): Observable<any> {
-    return this.http.get(`${BASIC_URL}/api/admin/cars`, {
+    return this.http.get(`${BASIC_URL}/cars`, {
       headers: this.createAuthorizationHeader()
     })
   }
 
   deleteCar(id: number): Observable<any> {
-    return this.http.delete(`${BASIC_URL}/api/admin/car/${id}`, {
+    return this.http.delete(`${BASIC_URL}/cars/${id}`, {
       headers: this.createAuthorizationHeader()
     })
   }
 
   getCarById(id: number): Observable<any> {
-    return this.http.get(`${BASIC_URL}/api/admin/car/${id}`, {
+    return this.http.get(`${BASIC_URL}/cars/${id}`, {
       headers: this.createAuthorizationHeader()
     })
   }
 
   updateCar(carId: number, carDto: any): Observable<any> {
-    return this.http.put(`${BASIC_URL}/api/admin/car/${carId}`, carDto, {
+    return this.http.put(`${BASIC_URL}/cars/${carId}`, carDto, {
       headers: this.createAuthorizationHeader()
     })
   }
 
   getCarBookings(): Observable<any> {
-    return this.http.get(`${BASIC_URL}/api/admin/car/bookings`, {
+    return this.http.get(`${BASIC_URL}/bookings`, {
       headers: this.createAuthorizationHeader()
     })
   }
 
   changeBookingStatus(bookingId: number, status: string): Observable<any> {
     return this.http.get(
-      `${BASIC_URL}/api/admin/car/booking/${bookingId}/${status}`,
+      `${BASIC_URL}/bookings/${bookingId}/${status}`,
       {
         headers: this.createAuthorizationHeader()
       }
@@ -57,7 +57,7 @@ export class AdminService {
   }
 
   searchCar(searchDto: any): Observable<any> {
-    return this.http.post(`${BASIC_URL}/api/admin/car/search`, searchDto, {
+    return this.http.post(`${BASIC_URL}/cars/search`, searchDto, {
       headers: this.createAuthorizationHeader()
     })
   }

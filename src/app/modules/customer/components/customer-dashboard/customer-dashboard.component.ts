@@ -24,10 +24,17 @@ export class CustomerDashboardComponent {
 
   getAllCars() {
     this.service.getAllCars().subscribe(res => {
-      res.forEach((car: any) => {
-        car.processedImage = `data:image/jpeg;base64,${car.returnedImage}`
-        this.cars.push(car)
-      })
-    })
+      this.cars = res;
+    });
   }
+
+
+  // getAllCars() {
+  //   this.service.getAllCars().subscribe(res => {
+  //     res.forEach((car: any) => {
+  //       car.processedImage = `data:image/jpeg;base64,${car.returnedImage}`
+  //       this.cars.push(car)
+  //     })
+  //   })
+  // }
 }

@@ -12,19 +12,19 @@ export class CustomerService {
   constructor(private http: HttpClient) {}
 
   getAllCars(): Observable<any> {
-    return this.http.get(`${BASIC_URL}/api/customer/cars`, {
+    return this.http.get(`${BASIC_URL}/cars`, {
       headers: this.createAuthorizationHeader()
     })
   }
 
   getCarById(id: number): Observable<any> {
-    return this.http.get(`${BASIC_URL}/api/customer/car/${id}`, {
+    return this.http.get(`${BASIC_URL}/cars/${id}`, {
       headers: this.createAuthorizationHeader()
     })
   }
 
   bookACar(bookACar: any): Observable<any> {
-    return this.http.post(`${BASIC_URL}/api/customer/car/book`, bookACar, {
+    return this.http.post(`${BASIC_URL}/cars/book`, bookACar, {
       headers: this.createAuthorizationHeader()
     })
   }
@@ -34,7 +34,7 @@ export class CustomerService {
       ? Number(StorageService.getUserId())
       : 0
 
-    return this.http.get(`${BASIC_URL}/api/customer/car/bookings/${userId}`, {
+    return this.http.get(`${BASIC_URL}/bookings/${userId}`, {
       headers: this.createAuthorizationHeader()
     })
   }
