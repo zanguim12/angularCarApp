@@ -31,31 +31,19 @@
   ],
   "cars": [
     {
-      "id": 1,
-      "processedImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAkB-cXKJ47aQfn0tnDShufGx6SCce8qmNQA&s",
-      "brand": "Toyota",
-      "name": "Corolla",
-      "description": "A reliable sedan with great mileage.",
-      "price": 25000.00,
-      "color": "Red",
-      "transmission": "Automatic",
-      "type": "Sedan",
-      "year": 2023
-    },
-    {
-      "id": 2,
+      "id": "2",
       "processedImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYGFzCkn6Oqh03eFDMJ1DOg73DybXhUAE39dT3vuGCAoZCcsrgEha7M5wmGXB09qfP4yY&usqp=CAU",
       "brand": "Ford",
       "name": "Mustang",
       "description": "A classic American muscle car with modern updates.",
-      "price": 45000.00,
+      "price": 45000,
       "color": "Blue",
       "transmission": "Manual",
       "type": "Coupe",
       "year": 2022
     },
     {
-      "id": 3,
+      "id": "3",
       "processedImage": "https://sf1.autoplus.fr/wp-content/uploads/autoplus/2020/10/tesla-model-2020-prix-baisse-passe-sous-les-80-000.jpeg",
       "brand": "Tesla",
       "name": "Model S",
@@ -65,18 +53,42 @@
       "transmission": "Automatic",
       "type": "Electric",
       "year": 2024
+    },
+    {
+      "id": "4",
+      "processedImage": "https://sf1.autoplus.fr/wp-content/uploads/autoplus/2020/10/tesla-model-2020-prix-baisse-passe-sous-les-80-000.jpeg",
+      "brand": "Tesla",
+      "name": "Model S",
+      "description": "A luxury electric sedan with impressive performance.",
+      "price": 79999.99,
+      "color": "White",
+      "transmission": "Automatic",
+      "type": "Electric",
+      "year": 2024
+    },
+    {
+      "id": "6",
+      "processedImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYGFzCkn6Oqh03eFDMJ1DOg73DybXhUAE39dT3vuGCAoZCcsrgEha7M5wmGXB09qfP4yY&usqp=CAU",
+      "brand": "Ford",
+      "name": "Mustang",
+      "description": "A classic American muscle car with modern updates.",
+      "price": 45000,
+      "color": "Blue",
+      "transmission": "Manual",
+      "type": "Coupe",
+      "year": 2022
     }
   ],
   "bookings": [
     {
-      "id": 1,
+      "id": "1",
       "userId": "1",
       "carId": 2,
       "date": "2024-11-20",
       "status": "confirmed"
     },
     {
-      "id": 2,
+      "id": "2",
       "userId": "4n3fhx6uv",
       "carId": 1,
       "date": "2024-11-18",

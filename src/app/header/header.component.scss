@@ -1,0 +1,71 @@
+nav{
+    background-color:#91d4fc;
+  }
+  .header-menu{
+    border-right:1px solid #dfdfdf;
+  }
+  .logo{
+    font-size:30px;
+    color:#D23B38;
+    font-family: 'Pacifico', cursive;
+  }
+  #support-icon{
+    width:50px;
+    height:50px;
+    border-radius:50px;
+    float:left;
+    background-color:#D23B38;
+    margin-right:10px;
+    transition:all .5s ease;
+  }
+  #support-icon:hover{
+    background-color:#a00120;
+    transition:all .5s ease;
+  }
+  
+  
+  .login-or{
+    font-size:16px;
+    color:#acacac;
+    opacity:.8;
+    font-weight: 300;
+    margin:0 15px;
+  }
+  a {
+    text-decoration: none;
+    color :#333;
+    font-size: 15px;
+  }
+  
+  h3{
+    color:#333333;
+    font-size: 18px;
+  }
+  h4{
+    color:#707070;
+    font-size:16px;
+  }
+  .p-button-danger{
+    background-color: #D23B38;
+  }
+  
+  .dropdown-button{
+    background-color:#fff;
+    width:100%;
+    -webkit-box-shadow: -1px 0px 10px 0px rgba(50, 50, 50, 0.15);
+    -moz-box-shadow: -1px 0px 10px 0px rgba(50, 50, 50, 0.15);
+    box-shadow: -1px 0px 10px 0px rgba(50, 50, 50, 0.15);
+  }
+  .dropdown-button:hover{
+    -webkit-box-shadow: -1px 0px 10px 0px rgba(50, 50, 50, 0.45);
+    -moz-box-shadow: -1px 0px 10px 0px rgba(50, 50, 50, 0.45);
+    box-shadow: -1px 0px 10px 0px rgba(50, 50, 50, 0.45);
+  }
+  .dropdown-menu{
+    width:90%;
+  }
+  .dropdown-item:active{
+    background-color: #D23B38;
+    color:#fff;
+  }
+  

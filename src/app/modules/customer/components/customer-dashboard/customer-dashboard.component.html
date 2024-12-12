@@ -1,49 +1,68 @@
-<div class="items-center justify-center" style="background-color: #f8f8f8; min-height: 91vh; padding: 24px;">
-  <!-- Grille des cartes -->
-  <div
-    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1">
-    <!-- Boucle sur les voitures -->
-    <div
-      *ngFor="let car of cars"
-      class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-1">
-
-      <!-- Image de la voiture -->
-      <div class="mb-4">
-        <img
-          class="w-full h-32 object-cover rounded-lg"
-          [src]="car.processedImage"
-          alt="profile" />
+<div class="relative isolate px-6 pt-14 lg:px-8">
+   <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
+    <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+  </div> 
+  <div class="mx-auto max-w-2xl py-3 sm:py-48 lg:py-5">
+    <div class="hidden sm:mb-8 sm:flex sm:justify-center">
+      <div class="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+        Announcing our next round of funding. <a href="#" class="font-semibold text-green-600">
+          <span class="absolute inset-0" aria-hidden="true"></span>Read more <span aria-hidden="true">&rarr;</span></a>
       </div>
-
-      <!-- Contenu textuel -->
-      <div>
-        <h2
-          class="mb-2 text-lg font-bold text-blue-600 hover:underline cursor-pointer">
-          {{car.brand}} - {{car.name}}
-        </h2>
-        <p class="mb-3 text-gray-700 dark:text-gray-400">
-          {{car.description}}
-        </p>
-        <hr class="mb-2">
-        <h5>
-          <span>Price: <b>${{car.price}}</b></span><br>
-          <span>Color: <b>{{car.color}}</b></span><br>
-          <span>Transmission: <b>{{car.transmission}}</b></span><br>
-          <span>Type: <b>{{car.type}}</b></span><br>
-          <span>Year: <b>{{car.year}}</b></span>
-        </h5>
+    </div>
+    <div class="text-center">
+      <h1 class="text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">Data to enrich your online business</h1>
+      <p class="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat.</p>
+      <div class="mt-10 flex items-center justify-center gap-x-6">
+        <a href="/" class="rounded-md bg-green-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">Get started</a>
+        <a href="/" class="text-sm/6 font-semibold text-gray-900">Learn more <span aria-hidden="true">→</span></a>
       </div>
-
-      <!-- Bouton d'action -->
-      <div class="mt-4 flex justify-end">
-        <button
-          class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          nzSize="small"
-          nz-button
-          nzType="primary"
-          routerLink="/customer/book/{{car.id}}">
-          Book
-        </button>
+    </div>
+  </div>
+  <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
+    <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+  </div>
+  <div class="min-h-screenpy-6">
+    <div class="container mx-auto px-6">
+      <!-- Grille responsive des cartes -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <!-- Boucle Angular pour afficher chaque voiture -->
+        <div *ngFor="let car of cars" class="group relative bg-green border rounded-lg shadow overflow-hidden hover:shadow-lg transition">
+          <!-- Image -->
+          <div class="relative h-48">
+            <img 
+              [src]="car.processedImage" 
+              alt="{{ car.brand }} {{ car.name }}"
+              class="h-full w-full object-cover opacity-75 group-hover:opacity-100 hover:bg-green-700 transition"
+            />
+          </div>
+          
+          <!-- Contenu -->
+          <div class="p-4">
+            <h3 class="text-lg font-bold text-green-600 group-hover:underline cursor-pointer">
+              {{ car.brand }} - {{ car.name }}
+            </h3>
+            <p class="mt-2 text-gray-600 text-sm">
+              {{ car.description }}
+            </p>
+            <hr class="my-3">
+            <ul class="text-sm text-gray-800 space-y-1">
+              <li><strong>Price:</strong> ${{ car.price }}</li>
+              <li><strong>Color:</strong> {{ car.color }}</li>
+              <li><strong>Transmission:</strong> {{ car.transmission }}</li>
+              <li><strong>Type:</strong> {{ car.type }}</li>
+              <li><strong>Year:</strong> {{ car.year }}</li>
+            </ul>
+          </div>
+          
+          <!-- Bouton d'action -->
+          <div class="p-4 flex justify-end">
+            <button 
+              routerLink="/customer/book/{{ car.id }}"
+              class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 focus:ring-2 focus:ring-green-300 transition">
+              Book
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

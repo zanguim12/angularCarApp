@@ -1,25 +1,21 @@
 import { Component } from '@angular/core';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
-import { StorageService } from './auth/services/storage/storage.service';
+import { StorageService } from '../auth/services/storage/storage.service';
+import { Router, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-header',
   standalone: true,
   imports: [
     CommonModule,
-    RouterOutlet,
-    // RouterLink,
-    HeaderComponent,
-    FooterComponent
+    RouterLink,
+    RouterLinkActive
   ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.scss'
 })
-export class AppComponent {
-  title = 'angularCarApp';
+export class HeaderComponent {
 
   isCustomerLoggedIn: boolean = StorageService.isCustomerLoggedIn()
   isAdminLoggedIn: boolean = StorageService.isAdminLoggedIn()
