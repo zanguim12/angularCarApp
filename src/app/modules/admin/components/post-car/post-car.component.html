@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
 <div style="margin-top: 50px; padding: 40px;">
   <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
     <div class="flex flex-col items-center">
@@ -95,4 +95,88 @@
       </form>
     </div>
   </nz-spin>
+</div> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+<div class="mt-12 p-10">
+  <div class="flex flex-col items-center">
+    <h1 class="text-xl font-bold text-gray-800 mb-4 text-center">Post Car</h1>
+
+    <form [formGroup]="postCarForm" class="space-y-6">
+      <div class="pb-6">
+        <div class="profile-badge">
+          <label for="upload_profile_image" class="upload-label" *ngIf="selectedFile">
+            <img class="profile" [src]="imagePreview" alt="profile" />
+          </label>
+
+          <input type="file" class="block w-full py-2 px-4 border rounded-md text-gray-700" id="upload_profile_image" (change)="onFileSelected($event)" accept="image/*" />
+        </div>
+      </div>
+
+      <div>
+        <div class="flex flex-col space-y-4">
+          <label for="brand" class="text-gray-700">Select a Brand</label>
+          <select formControlName="brand" id="brand" class="block w-full py-2 px-4 border rounded-md text-gray-700">
+            <option *ngFor="let brand of listOfBrands" [value]="brand">{{ brand }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex flex-col space-y-4">
+          <label for="name" class="text-gray-700">Name</label>
+          <input id="name" formControlName="name" class="block w-full py-2 px-4 border rounded-md text-gray-700" placeholder="Name" />
+        </div>
+      </div>
+
+      <div>
+        <div class="flex flex-col space-y-4">
+          <label for="type" class="text-gray-700">Select a Type</label>
+          <select formControlName="type" id="type" class="block w-full py-2 px-4 border rounded-md text-gray-700">
+            <option *ngFor="let type of listOfType" [value]="type">{{ type }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex flex-col space-y-4">
+          <label for="transmission" class="text-gray-700">Select a Transmission</label>
+          <select formControlName="transmission" id="transmission" class="block w-full py-2 px-4 border rounded-md text-gray-700">
+            <option *ngFor="let transmission of listOfTransmission" [value]="transmission">{{ transmission }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex flex-col space-y-4">
+          <label for="color" class="text-gray-700">Select a Color</label>
+          <select formControlName="color" id="color" class="block w-full py-2 px-4 border rounded-md text-gray-700">
+            <option *ngFor="let color of listOfColor" [value]="color">{{ color }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex flex-col space-y-4">
+          <label for="year" class="text-gray-700">Modal Year</label>
+          <input formControlName="year" id="year" class="block w-full py-2 px-4 border rounded-md text-gray-700" placeholder="Modal Year" />
+        </div>
+      </div>
+
+      <div>
+        <div class="flex flex-col space-y-4">
+          <label for="price" class="text-gray-700">Price</label>
+          <input formControlName="price" id="price" class="block w-full py-2 px-4 border rounded-md text-gray-700" placeholder="Price" />
+        </div>
+      </div>
+
+      <div>
+        <div class="flex flex-col space-y-4">
+          <label for="description" class="text-gray-700">Description</label>
+          <textarea formControlName="description" id="description" rows="4" class="block w-full py-2 px-4 border rounded-md text-gray-700" placeholder="Description"></textarea>
+        </div>
+      </div>
+
+      <button type="button" class="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400" (click)="postCar()">Post Car</button>
+    </form>
+  </div>
 </div>

@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminService } from '../../services/admin.service';
 import { CommonModule } from '@angular/common';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
-
 
 @Component({
   selector: 'app-search-car',
@@ -24,14 +23,15 @@ import { NzSpinModule } from 'ng-zorro-antd/spin';
   styleUrl: './search-car.component.scss'
 })
 export class SearchCarComponent {
-  searchCarForm!: FormGroup
-  listOfOption: Array<{ label: string; value: string }> = []
-  listOfBrands = ['Toyota', 'Honda', 'BMW', 'Mercedes', 'Audi', 'Lexus']
-  listOfType = ['Sports Car', 'Diesel', 'Crossover', 'Luxury Car']
-  listOfColor = ['Red', 'Blue', 'Brown', 'Green']
-  listOfTransmission = ['Manual', 'Automatic']
-  isSpinning = false
-  cars: any[] = []
+  searchCarForm!: FormGroup;
+  listOfOption: Array<{ label: string; value: string }> = [];
+  listOfBrands = ['Toyota', 'Honda', 'BMW', 'Mercedes', 'Audi', 'Lexus', 'ford'];
+  listOfType = ['Sports Car', 'Diesel', 'Crossover', 'Luxury Car','Tesla'];
+  listOfColor = ['Red', 'Blue', 'Brown', 'Green'];
+  listOfTransmission = ['Manual', 'Automatic'];
+  isSpinning = false;
+  cars: any[] = []; // This holds all cars
+  results: any[] = []; // This holds the search results
 
   constructor(
     private fb: FormBuilder,
@@ -42,25 +42,28 @@ export class SearchCarComponent {
       type: [null],
       transmission: [null],
       color: [null]
-    })
+    });
   }
 
   searchCar() {
-    this.isSpinning = true
-    this.service.searchCar(this.searchCarForm.value).subscribe(
-      res => {
-        this.isSpinning = false
+    this.isSpinning = true;
+    // Collect the form values as searchDto
+    const searchDto = this.searchCarForm.value;
 
-        const carDtoList = res.carDtoList
-
-        carDtoList.forEach((car: any) => {
-          car.processedImage = `data:image/jpeg;base64,${car.returnedImage}`
-          this.cars.push(car)
-        })
+    this.service.searchCar(searchDto).subscribe(
+      (response) => {
+        this.isSpinning = false; // Stop spinner
+        if (response && Array.isArray(response)) {
+          this.results = response.map(item => item); // Assign the response to results
+        } else {
+          this.results = [];
+          console.error('No cars found');
+        }
       },
-      err => {
-        this.isSpinning = false
+      (error) => {
+        this.isSpinning = false; // Stop spinner on error
+        console.error('Search error:', error);
       }
-    )
+    );
   }
 }

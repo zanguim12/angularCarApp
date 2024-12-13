@@ -31,7 +31,8 @@ export class UpdateCarComponent implements OnInit {
   imagePreview: string | ArrayBuffer | null = null;
   existingImage: string | null = null;
   updateForm!: FormGroup;
-  listOfBrands = ['Toyota', 'Honda', 'BMW', 'Mercedes', 'Audi', 'Lexus'];
+  selectedBrand: string = '';
+    listOfBrands = ['Toyota', 'Honda', 'BMW', 'Mercedes', 'Audi', 'Lexus'];
   listOfType = ['Sports Car', 'Diesel', 'Crossover', 'Luxury Car'];
   listOfColor = ['Red', 'Blue', 'Brown', 'Green'];
   listOfTransmission = ['Manual', 'Automatic'];

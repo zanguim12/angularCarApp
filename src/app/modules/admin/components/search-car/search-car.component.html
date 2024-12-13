@@ -1,4 +1,4 @@
-<div style="margin-top: 50px; padding: 40px;">
+<!-- <div style="margin-top: 50px; padding: 40px;">
   <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
     <div class="flex flex-col items-center">
       <h1 class="text-xl font-bold text-gray-800 mb-4 text-center">Post Car</h1>
@@ -71,4 +71,65 @@
         </div>
       </div>
     </div>
+  </div> -->
+  <div class="mt-12 p-10">
+    <div class="flex flex-col items-center">
+      <h1 class="text-xl font-bold text-gray-800 mb-4 text-center">Post Car</h1>
+  
+      <form [formGroup]="searchCarForm" class="space-y-6">
+        <div class="flex flex-col space-y-4">
+          <label for="brand" class="text-gray-700">Select a Brand</label>
+          <select formControlName="brand" id="brand" class="block w-full py-2 px-4 border rounded-md text-gray-700">
+            <option *ngFor="let brand of listOfBrands" [value]="brand">{{ brand }}</option>
+          </select>
+        </div>
+  
+        <div class="flex flex-col space-y-4">
+          <label for="type" class="text-gray-700">Select a Type</label>
+          <select formControlName="type" id="type" class="block w-full py-2 px-4 border rounded-md text-gray-700">
+            <option *ngFor="let type of listOfType" [value]="type">{{ type }}</option>
+          </select>
+        </div>
+  
+        <div class="flex flex-col space-y-4">
+          <label for="transmission" class="text-gray-700">Select a Transmission</label>
+          <select formControlName="transmission" id="transmission" class="block w-full py-2 px-4 border rounded-md text-gray-700">
+            <option *ngFor="let transmission of listOfTransmission" [value]="transmission">{{ transmission }}</option>
+          </select>
+        </div>
+  
+        <div class="flex flex-col space-y-4">
+          <label for="color" class="text-gray-700">Select a Color</label>
+          <select formControlName="color" id="color" class="block w-full py-2 px-4 border rounded-md text-gray-700">
+            <option *ngFor="let color of listOfColor" [value]="color">{{ color }}</option>
+          </select>
+        </div>
+  
+        <button type="button" class="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400" (click)="searchCar()">
+          Search
+        </button>
+      </form>
+    </div>
   </div>
+  
+  <div class="container mx-auto px-4 bg-gray-100 py-8" *ngIf="cars.length > 0">
+    <h1 class="text-xl font-bold text-gray-800 mb-4 text-center">Car List</h1>
+  
+    <div class="flex flex-wrap">
+      <div class="w-1/4 p-4" *ngFor="let car of cars">
+        <div class="bg-white shadow-lg rounded-lg p-4">
+          <img [src]="car.processedImage" alt="car" class="w-full h-32 object-cover object-center">
+  
+          <div class="mt-4">
+            <h2 class="text-gray-900 text-lg font-medium">{{ car.name }}</h2>
+            <p class="text-gray-500">{{ car.brand }}</p>
+            <p class="text-gray-500">{{ car.type }}</p>
+            <p class="text-gray-500">{{ car.transmission }}</p>
+            <p class="text-gray-500">{{ car.color }}</p>
+            <p class="text-gray-500">{{ car.price }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

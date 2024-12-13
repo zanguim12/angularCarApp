@@ -48,18 +48,12 @@ export class AdminService {
   }
 
   changeBookingStatus(bookingId: number, status: string): Observable<any> {
-    return this.http.get(
-      `${BASIC_URL}/bookings/${bookingId}/${status}`,
-      {
-        headers: this.createAuthorizationHeader()
-      }
-    )
+    return this.http.patch(`${BASIC_URL}/bookings/${bookingId}`, { status });
   }
 
   searchCar(searchDto: any): Observable<any> {
-    return this.http.post(`${BASIC_URL}/cars/search`, searchDto, {
-      headers: this.createAuthorizationHeader()
-    })
+    const params = new URLSearchParams(Object.entries(searchDto)).toString();
+    return this.http.get(`${BASIC_URL}/cars?${params}`);
   }
 
   private createAuthorizationHeader(): HttpHeaders {
