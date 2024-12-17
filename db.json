@@ -31,16 +31,15 @@
   ],
   "cars": [
     {
-      "id": "2",
-      "processedImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYGFzCkn6Oqh03eFDMJ1DOg73DybXhUAE39dT3vuGCAoZCcsrgEha7M5wmGXB09qfP4yY&usqp=CAU",
-      "brand": "Ford",
       "name": "Mustang",
-      "description": "A classic American muscle car with modern updates.",
-      "price": 45000,
+      "brand": "Ford",
+      "type": "Coupe",
       "color": "Blue",
       "transmission": "Manual",
-      "type": "Coupe",
-      "year": 2022
+      "price": "45",
+      "description": "A classic American muscle car with modern updates.",
+      "year": "20224223",
+      "id": "2"
     },
     {
       "id": "3",

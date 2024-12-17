@@ -1,13 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { AdminService } from '../../services/admin.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzSelectModule } from 'ng-zorro-antd/select';
-import { NzFormModule } from 'ng-zorro-antd/form';
-import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
-import { CommonModule } from '@angular/common';
+import { AdminService } from '../../services/admin.service';
 
 @Component({
   selector: 'app-update-car',
@@ -48,6 +48,7 @@ export class UpdateCarComponent implements OnInit {
   ngOnInit() {
     this.carId = this.activatedRoute.snapshot.params['id'];  // Set carId in ngOnInit()
     this.updateForm = this.fb.group({
+     // id: [null],
       name: [null, Validators.required],
       brand: [null, Validators.required],
       type: [null, Validators.required],
@@ -55,7 +56,8 @@ export class UpdateCarComponent implements OnInit {
       transmission: [null, Validators.required],
       price: [null, Validators.required],
       description: [null, Validators.required],
-      year: [null, Validators.required]
+      year: [null, Validators.required],
+      //processedImage: [null]
     });
 
     this.getCarById();
@@ -66,8 +68,9 @@ export class UpdateCarComponent implements OnInit {
 
     this.adminService.getCarById(this.carId).subscribe(res => {
       this.isSpinning = false;
+      console.log(res);
       const carDto = res;
-      this.existingImage = `data:image/jpeg;base64,${carDto.returnedImage}`;
+      this.existingImage = carDto.processedImage;
       this.updateForm.patchValue(carDto);
     });
   }
@@ -77,19 +80,16 @@ export class UpdateCarComponent implements OnInit {
 
     const formData: FormData = new FormData();
     if (this.imgChanged && this.selectedFile) {
-      formData.append('image', this.selectedFile as Blob);
+      //formData.append('image', this.selectedFile as Blob);
     }
+    console.log(this.updateForm.value);
+    //this.updateForm.value.id = this.carId;
+    //this.updateForm.value.processedImage = this.existingImage;
 
-    formData.append('brand', this.updateForm.value.brand);
-    formData.append('name', this.updateForm.value.name);
-    formData.append('type', this.updateForm.value.type);
-    formData.append('color', this.updateForm.value.color);
-    formData.append('year', this.updateForm.value.year);
-    formData.append('transmission', this.updateForm.value.transmission);
-    formData.append('description', this.updateForm.value.description);
-    formData.append('price', this.updateForm.value.price);
 
-    this.adminService.updateCar(this.carId, formData).subscribe(
+    console.log(formData.get('brand'));
+
+    this.adminService.updateCar(this.carId, this.updateForm.value).subscribe(
       res => {
         this.message.success('Car updated successfully', { nzDuration: 3000 });
         this.isSpinning = false;
