@@ -43,43 +43,19 @@
       "id": "2"
     },
     {
-      "processedImage": "https://sf1.autoplus.fr/wp-content/uploads/autoplus/2020/10/tesla-model-2020-prix-baisse-passe-sous-les-80-000.jpeg",
-      "brand": "Tesla",
       "name": "Model S",
+      "brand": "Tesla",
       "type": "Electric",
       "color": "White",
       "transmission": "Automatic",
       "price": 79999.99,
       "description": "A luxury electric sedan with impressive performance.",
       "year": 2024,
+      "processedImage": "https://sf1.autoplus.fr/wp-content/uploads/autoplus/2020/10/tesla-model-2020-prix-baisse-passe-sous-les-80-000.jpeg",
       "id": "3"
     },
     {
-      "id": "4",
-      "processedImage": "https://sf1.autoplus.fr/wp-content/uploads/autoplus/2020/10/tesla-model-2020-prix-baisse-passe-sous-les-80-000.jpeg",
-      "brand": "Tesla",
-      "name": "Model S",
-      "description": "A luxury electric sedan with impressive performance.",
-      "price": 79999.99,
-      "color": "White",
-      "transmission": "Automatic",
-      "type": "Electric",
-      "year": 2024
-    },
-    {
-      "id": "5",
-      "processedImage": "https://images.bfmtv.com/BD_YWMvHnuvLiFNg704HlKGNQE4=/4x3:1252x705/640x0/images/-180591.jpg",
-      "brand": "FBugatti",
-      "name": "Mustang",
-      "description": "La Voiture Noire, ou la voiture la plus chère au monde",
-      "price": 45000,
-      "color": "Blue",
-      "transmission": "Manual",
-      "type": "Coupe",
-      "year": 2022
-    },
-    {
-      "id": "6",
+      "id": "7",
       "processedImage": "https://sf1.autoplus.fr/wp-content/uploads/autoplus/2020/10/tesla-model-2020-prix-baisse-passe-sous-les-80-000.jpeg",
       "brand": "Tesla",
       "name": "Model S",

@@ -36,6 +36,7 @@ export class PostCarComponent {
 
   ngOnInit() {
     this.postCarForm = this.fb.group({
+      // id: [null, Validators.required],
       name: [null, Validators.required],
       brand: [null, Validators.required],
       type: [null, Validators.required],
@@ -43,7 +44,8 @@ export class PostCarComponent {
       transmission: [null, Validators.required],
       price: [null, Validators.required],
       description: [null, Validators.required],
-      year: [null, Validators.required]
+      year: [null, Validators.required],
+      processedImage: [null, Validators.required]
     })
   }
 

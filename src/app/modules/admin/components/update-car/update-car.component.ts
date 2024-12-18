@@ -48,7 +48,7 @@ export class UpdateCarComponent implements OnInit {
   ngOnInit() {
     this.carId = this.activatedRoute.snapshot.params['id'];  // Set carId in ngOnInit()
     this.updateForm = this.fb.group({
-     // id: [null],
+      id: [null, Validators.required],
       name: [null, Validators.required],
       brand: [null, Validators.required],
       type: [null, Validators.required],
@@ -57,7 +57,7 @@ export class UpdateCarComponent implements OnInit {
       price: [null, Validators.required],
       description: [null, Validators.required],
       year: [null, Validators.required],
-      //processedImage: [null]
+      processedImage: [null, Validators.required]
     });
 
     this.getCarById();
