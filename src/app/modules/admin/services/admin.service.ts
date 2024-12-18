@@ -12,7 +12,7 @@ export class AdminService {
   constructor(private http: HttpClient) {}
 
   postCar(carDto: any): Observable<any> {
-    return this.http.post(`${BASIC_URL}/cars`, carDto, {
+    return this.http.put(`${BASIC_URL}/cars`, carDto, {
       headers: this.createAuthorizationHeader()
     })
   }

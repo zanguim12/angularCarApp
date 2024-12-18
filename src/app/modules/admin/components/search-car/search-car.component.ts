@@ -2,10 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminService } from '../../services/admin.service';
 import { CommonModule } from '@angular/common';
-import { NzSelectModule } from 'ng-zorro-antd/select';
-import { NzFormModule } from 'ng-zorro-antd/form';
-import { NzButtonModule } from 'ng-zorro-antd/button';
-import { NzSpinModule } from 'ng-zorro-antd/spin';
+
 
 @Component({
   selector: 'app-search-car',
@@ -14,10 +11,7 @@ import { NzSpinModule } from 'ng-zorro-antd/spin';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NzSelectModule,
-    NzFormModule,
-    NzButtonModule,
-    NzSpinModule,
+   
   ],
   templateUrl: './search-car.component.html',
   styleUrl: './search-car.component.scss'
@@ -49,6 +43,8 @@ export class SearchCarComponent {
     this.isSpinning = true;
     // Collect the form values as searchDto
     const searchDto = this.searchCarForm.value;
+
+    console.log(this.searchCar);
 
     this.service.searchCar(searchDto).subscribe(
       (response) => {

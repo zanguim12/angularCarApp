@@ -32,7 +32,7 @@ export class UpdateCarComponent implements OnInit {
   existingImage: string | null = null;
   updateForm!: FormGroup;
   selectedBrand: string = '';
-    listOfBrands = ['Toyota', 'Honda', 'BMW', 'Mercedes', 'Audi', 'Lexus'];
+  listOfBrands = ['Toyota', 'Honda', 'BMW', 'Mercedes', 'Audi', 'Lexus'];
   listOfType = ['Sports Car', 'Diesel', 'Crossover', 'Luxury Car'];
   listOfColor = ['Red', 'Blue', 'Brown', 'Green'];
   listOfTransmission = ['Manual', 'Automatic'];
@@ -82,12 +82,12 @@ export class UpdateCarComponent implements OnInit {
     if (this.imgChanged && this.selectedFile) {
       //formData.append('image', this.selectedFile as Blob);
     }
-    console.log(this.updateForm.value);
+    // console.log(this.updateForm.value);
     //this.updateForm.value.id = this.carId;
     //this.updateForm.value.processedImage = this.existingImage;
 
 
-    console.log(formData.get('brand'));
+    // console.log(formData.get('brand'));
 
     this.adminService.updateCar(this.carId, this.updateForm.value).subscribe(
       res => {

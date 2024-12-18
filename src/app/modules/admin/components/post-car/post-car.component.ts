@@ -4,21 +4,14 @@ import { AdminService } from '../../services/admin.service';
 import { Router } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { CommonModule } from '@angular/common';
-import { NzSelectModule } from 'ng-zorro-antd/select';
-import { NzFormModule } from 'ng-zorro-antd/form';
-import { NzButtonModule } from 'ng-zorro-antd/button';
-import { NzSpinModule } from 'ng-zorro-antd/spin';
+
 
 @Component({
   selector: 'app-post-car',
   standalone: true,
   imports: [
     CommonModule,
-    ReactiveFormsModule,
-    NzSelectModule,
-    NzFormModule,
-    NzButtonModule,
-    NzSpinModule
+    ReactiveFormsModule
   ],
   templateUrl: './post-car.component.html',
   styleUrl: './post-car.component.scss'
@@ -57,18 +50,9 @@ export class PostCarComponent {
   postCar() {
     this.isSpinning = true
 
-    const formData: FormData = new FormData()
-    formData.append('image', this.selectedFile as Blob)
-    formData.append('brand', this.postCarForm.value.brand)
-    formData.append('name', this.postCarForm.value.name)
-    formData.append('type', this.postCarForm.value.type)
-    formData.append('color', this.postCarForm.value.color)
-    formData.append('year', this.postCarForm.value.year)
-    formData.append('transmission', this.postCarForm.value.transmission)
-    formData.append('description', this.postCarForm.value.description)
-    formData.append('price', this.postCarForm.value.price)
+        console.log(this.postCarForm.value);
 
-    this.adminService.postCar(formData).subscribe(
+    this.adminService.postCar(this.postCarForm.value).subscribe(
       res => {
         this.message.success('Car posted successfully', { nzDuration: 3000 })
         this.isSpinning = false
