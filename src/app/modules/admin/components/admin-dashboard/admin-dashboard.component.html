@@ -1,8 +1,8 @@
-<div 
+<!-- <div 
   class="justify-center items-center grid grid-cols-2 md:grid-cols-4 gap-4 px-15" 
   style="background-color: #ffffff;"
 >
-  <!-- Section Carte pour chaque voiture -->
+  <!- Section Carte pour chaque voiture ->
   <div 
     *ngFor="let car of cars" 
     class="child justify-center items-center" 
@@ -10,7 +10,7 @@
   >
     <div class="w-full max-w-sm bg-white rounded-lg shadow dark:bg-white-100">
       
-      <!-- Section Image -->
+      <!- Section Image ->
       <a href="#">
         <div class="relative">
           <img 
@@ -21,9 +21,9 @@
         </div>
       </a>
       
-      <!-- Section Détails du véhicule -->
+      <!- Section Détails du véhicule ->
       <div class="px-5 pb-5">
-        <!-- Titre -->
+        <!- Titre ->
         <h2 
           class="text-xl font-semibold tracking-tight text-black-900 dark:text-black-300" 
           style="cursor: pointer; color: #54fc94;"
@@ -31,13 +31,13 @@
           {{ car.brand }} - {{ car.name }}
         </h2>
 
-        <!-- Description -->
+        <!- Description ->
         <p class="text-xl font-semibold tracking-tight text-black-100 dark:text-black-100">
           {{ car.description }}
         </p>
         <hr />
 
-        <!-- Détails supplémentaires -->
+        <!- Détails supplémentaires ->
         <p class="text-lg font-medium text-black-900 dark:text-black-300">
           Prix : <b>${{ car.price }}</b> - Couleur : <b>{{ car.color }}</b> - 
           Transmission : <b>{{ car.transmission }}</b> - 
@@ -45,16 +45,16 @@
           Année : <b>{{ car.year }}</b>
         </p>
 
-        <!-- Section Actions -->
+        <!- Section Actions ->
         <div class="flex items-center justify-between mt-4">
-          <!-- Prix -->
+          <!- Prix ->
           <span class="text-3xl font-bold text-gray-900 dark:text-white">
             ${{ car.price }}
           </span>
 
-          <!-- Boutons d'actions -->
+          <!- Boutons d'actions ->
           <div class="flex space-x-2">
-            <!-- Bouton Modifier -->
+            <!- Bouton Modifier ->
             <button 
               class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" 
               routerLink="/admin/car/{{ car.id }}"
@@ -62,7 +62,7 @@
               Modifier
             </button>
 
-            <!-- Bouton Supprimer -->
+            <!- Bouton Supprimer ->
             <button 
               class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800" 
               (click)="deleteCar(car.id)"
@@ -74,4 +74,138 @@
       </div>
     </div>
   </div>
+</div> -->
+
+
+<!-- Section Grille et Carte -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6">
+  <!-- Chiffre d'Affaires du Jour -->
+  <div class="bg-gradient-to-b from-green-200 to-green-140 rounded-lg p-4 shadow-md flex items-center">
+    <div class="text-5xl text-yellow-600 mr-6">
+      <i class="fas fa-chart-line"></i>
+    </div>
+    <div>
+      <p class="text-gray-700 font-semibold">CHIFFRE D'AFFAIRE DU JOUR</p>
+      <h4 class="text-3xl font-bold text-yellow-800">XAF 1,909,950.00</h4>
+    </div>
+  </div>
+
+  <!-- Versement par Chèque -->
+  <div class="bg-gradient-to-b from-blue-450 to-blue-140 rounded-lg p-4 shadow-md flex items-center">
+    <div class="text-5xl text-blue-600 mr-6">
+      <i class="fas fa-money-check"></i>
+    </div>
+    <div>
+      <p class="text-gray-700 font-semibold">VERSEMENT PAR CHÈQUE</p>
+      <h4 class="text-3xl font-bold text-blue-800">XAF 0.00</h4>
+    </div>
+  </div>
+</div>
+
+<!-- Section Produits et Clients -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6">
+  <!-- Produits les Plus Vendus -->
+  <p-card class="shadow-md">
+    <div class="p-4">
+      <span class="text-lg font-semibold text-green-600">Produits les Plus Vendus</span>
+      <p class="text-gray-500">
+        Liste des produits par famille, chiffre d'affaires et bénéfices moyens.
+      </p>
+      <div class="mt-4">
+        <label class="block text-sm font-medium text-gray-600">Agence</label>
+        <select class="mt-2 block w-full border-gray-300 rounded-md p-2">
+          <option>Choisir une agence</option>
+        </select>
+      </div>
+      <div class="mt-4">
+        <label class="block text-sm font-medium text-gray-600">Période</label>
+        <div class="flex space-x-2">
+          <input type="date" class="block w-full border-gray-300 rounded-md p-2" />
+          <input type="date" class="block w-full border-gray-300 rounded-md p-2" />
+        </div>
+      </div>
+      <button class="mt-4 bg-green-600 text-white hover:bg-green-500 p-2 rounded-md">Voir</button>
+    </div>
+  </p-card>
+
+  <!-- Meilleurs Clients -->
+  <p-card class="shadow-md">
+    <div class="p-4">
+      <span class="text-lg font-semibold text-blue-600">Meilleurs Clients</span>
+      <p class="text-gray-500">Top 5 des clients</p>
+      <table class="w-full mt-4">
+        <thead>
+          <tr class="bg-gray-100 text-gray-700">
+            <th class="p-2 text-left">Client</th>
+            <th class="p-2 text-left">Prix TTC</th>
+            <th class="p-2 text-left">Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="p-2">COLOMBO MARIE</td>
+            <td class="p-2">XAF 80,547,000.00</td>
+            <td class="p-2">+80.5 pts</td>
+          </tr>
+          <tr>
+            <td class="p-2">MR OBAMA</td>
+            <td class="p-2">XAF 50,000,000.00</td>
+            <td class="p-2">+50 pts</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </p-card>
+</div>
+
+<!-- Liste des Voitures -->
+<div class="card">
+  <p-carousel
+    [value]="cars"
+    [numVisible]="3"
+    [numScroll]="3"
+    [circular]="false"
+    [responsiveOptions]="responsiveOptions">
+    
+    <ng-template let-car>
+      <div class="border border-gray-300 rounded-lg m-2 p-4 shadow-sm hover:shadow-md">
+        <!-- Image de la voiture -->
+        <div class="border border-surface rounded-border m-2 p-4">
+          <div class="mb-4">
+            <a href="#">
+              <img
+                class="h-auto max-w-full rounded-lg"
+                [src]="car.processedImage"
+                alt="Image du véhicule"
+              />
+            </a>
+          </div>
+        </div>
+
+        <!-- Détails de la voiture -->
+        <h2 class="text-xl font-semibold text-black-900">
+          {{ car.brand }} - {{ car.name }}
+        </h2>
+        <p class="text-lg text-gray-600 mb-3">{{ car.description }}</p>
+        <p class="text-md text-gray-500">
+          Prix : <b>{{ car.price }}</b> - Couleur : <b>{{ car.color }}</b> -
+          Transmission : <b>{{ car.transmission }}</b> - Type : <b>{{ car.type }}</b> - Année : <b>{{ car.year }}</b>
+        </p>
+        
+        <!-- Actions -->
+        <div class="flex space-x-2 mt-3">
+          <button class="bg-blue-600 text-white px-3 py-2 rounded">Modifier</button>
+          <button class="bg-red-600 text-white px-3 py-2 rounded">Supprimer</button>
+        </div>
+      </div>
+    </ng-template>
+    
+  </p-carousel>
+</div>
+
+
+<!-- Fréquence de Vente -->
+<div class="p-6 px-15 py-20 bg-white rounded-lg shadow-md">
+  <span class="text-lg font-semibold text-purple-600">Fréquence de Vente - Année</span>
+  <p-chart type="line" [data]="data" [options]="options" class="h-[30rem]"></p-chart>
 </div>

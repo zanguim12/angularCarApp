@@ -4,14 +4,14 @@
       "id": "1",
       "username": "john_doe",
       "email": "john@example.com",
-      "password": "hashed_password",
+      "password": "hpass",
       "role": "USER"
     },
     {
       "id": "4n3fhx6uv",
       "name": "papa",
       "email": "leonelzanguim4@gmail.com",
-      "password": "secure_password",
+      "password": "pass",
       "role": "ADMIN"
     },
     {
