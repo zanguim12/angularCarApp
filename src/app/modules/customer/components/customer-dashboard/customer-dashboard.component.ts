@@ -17,6 +17,7 @@ export class CustomerDashboardComponent {
   constructor(private service: CustomerService) {}
 
   cars: any[] = []
+  activeSlide: number = 0;
 
   ngOnInit() {
     this.getAllCars()
@@ -26,6 +27,17 @@ export class CustomerDashboardComponent {
     this.service.getAllCars().subscribe(res => {
       this.cars = res;
     });
+  }
+  goToSlide(index: number) {
+    this.activeSlide = index;
+  }
+
+  goToNextSlide() {
+    this.activeSlide = (this.activeSlide + 1) % this.cars.length;
+  }
+
+  goToPreviousSlide() {
+    this.activeSlide = (this.activeSlide - 1 + this.cars.length) % this.cars.length;
   }
 
 
