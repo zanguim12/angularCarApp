@@ -15,7 +15,7 @@ import { TagModule } from 'primeng/tag';
   standalone: true,
   imports: [
     CommonModule,
-    //RouterLink,
+    RouterLink,
     CardModule,
     ChartModule,
     CarouselModule,

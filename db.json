@@ -43,16 +43,16 @@
       "id": "2"
     },
     {
+      "id": "3",
       "name": "Model S",
-      "brand": "Tesla",
-      "type": "Electric",
-      "color": "White",
+      "brand": "Mercedes",
+      "type": "Sports Car",
+      "color": "Red",
       "transmission": "Automatic",
-      "price": 79999.99,
+      "price": "79",
       "description": "A luxury electric sedan with impressive performance.",
-      "year": 2024,
-      "processedImage": "https://sf1.autoplus.fr/wp-content/uploads/autoplus/2020/10/tesla-model-2020-prix-baisse-passe-sous-les-80-000.jpeg",
-      "id": "3"
+      "year": "20242",
+      "processedImage": "https://sf1.autoplus.fr/wp-content/uploads/autoplus/2020/10/tesla-model-2020-prix-baisse-passe-sous-les-80-000.jpeg"
     },
     {
       "id": "7",
@@ -65,6 +65,42 @@
       "transmission": "Automatic",
       "type": "Electric",
       "year": 2024
+    },
+    {
+      "id": "7",
+      "processedImage": "https://sf1.autoplus.fr/wp-content/uploads/autoplus/2020/10/tesla-model-2020-prix-baisse-passe-sous-les-80-000.jpeg",
+      "brand": "Tesla",
+      "name": "Model S",
+      "description": "A luxury electric sedan with impressive performance.",
+      "price": 79999.99,
+      "color": "White",
+      "transmission": "Automatic",
+      "type": "Electric",
+      "year": 2024
+    },
+    {
+      "id": "7",
+      "processedImage": "https://static.euronews.com/articles/stories/08/16/43/08/1200x675_cmsv2_bcb3be74-5111-51c6-ac7d-173ac98cec6e-8164308.jpg",
+      "brand": "Tesla",
+      "name": "Model S",
+      "description": "A luxury electric sedan with impressive performance.",
+      "price": 79999.99,
+      "color": "White",
+      "transmission": "Automatic",
+      "type": "Electric",
+      "year": 2024
+    },
+    {
+      "name": "Model S",
+      "brand": "Tesla",
+      "type": "Electric",
+      "color": "White",
+      "transmission": "Automatic",
+      "price": 79999.99,
+      "description": "A luxury electric sedan with impressive performance.",
+      "year": 2024,
+      "processedImage": "https://sf1.autoplus.fr/wp-content/uploads/autoplus/2020/10/tesla-model-2020-prix-baisse-passe-sous-les-80-000.jpeg",
+      "id": "3"
     },
     {
       "id": "7",

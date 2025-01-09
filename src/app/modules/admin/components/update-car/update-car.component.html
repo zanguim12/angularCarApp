@@ -107,54 +107,52 @@
     </div>
   </nz-spin>
 </div> -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
 
 <div style="margin-top: 50px; padding: 40px;">
   <div class="flex justify-center items-center">
     <div class="flex flex-col items-center w-full max-w-xl">
-      <h1 class="text-xl font-bold text-gray-800 mb-4 text-center">Update Car</h1>
+      <h1 class="text-2xl font-bold text-green-700 mb-6 text-center">Update Car</h1>
 
-      <form class="space-y-6" [formGroup]="updateForm">
+      <form class="space-y-6 grid grid-cols-1 md:grid-cols-2 gap-8" [formGroup]="updateForm">
         <!-- File Upload Section -->
-        <div class="pb-6">
-          <div class="file-upload-container">
-            <label class="block text-gray-700">
-              <span>Select a file</span>
-
-              <input type="file" class="mt-2 p-2 border border-gray-300 rounded-md" (change)="onFileSelected($event)" accept="image/*" />
-            </label>
-
-            <div *ngIf="imagePreview" class="image-preview mt-4">
-              <div class="circle-image">
-                <img [src]="imagePreview" alt="imagePreview" class="preview-image w-20 h-20 object-cover rounded-full" />
-              </div>
-            </div>
-
-            <div *ngIf="existingImage" class="image-preview mt-4">
-              <div class="circle-image">
-                <img [src]="existingImage" alt="existingImage" class="preview-image w-20 h-20 object-cover rounded-full" />
-              </div>
-            </div>
+        <div class="col-span-1 md:col-span-2 pb-4 text-center">
+          <label class="block text-gray-700 font-medium">
+            Upload Image
+            <input 
+              type="file" 
+              class="mt-3 p-2 border border-gray-300 rounded-md w-full md:w-auto"
+              (change)="onFileSelected($event)" 
+              accept="image/*" />
+          </label>
+          <div *ngIf="imagePreview || existingImage" class="mt-4 flex justify-center">
+            <img 
+              [src]="imagePreview || existingImage" 
+              alt="Image Preview" 
+              class="w-24 h-24 object-cover rounded-full shadow-md border-2 border-green-500" />
           </div>
         </div>
 
         <!-- Brand Selection -->
         <div>
-          <label class="block text-gray-700 mb-2">Brand</label>
-          <select formControlName="brand" class="w-full p-2 border border-gray-300 rounded-md" [ngModel]="selectedBrand">
+          <label class="block text-gray-700 font-medium">Brand</label>
+          <select formControlName="brand" class="w-full p-2 border border-gray-300 rounded-md">
             <option *ngFor="let brand of listOfBrands" [value]="brand">{{ brand }}</option>
           </select>
         </div>
 
         <!-- Car Name -->
         <div>
-          <label class="block text-gray-700 mb-2">Name</label>
-          <input formControlName="name" class="w-full p-2 border border-gray-300 rounded-md" type="text" placeholder="Car Name" />
+          <label class="block text-gray-700 font-medium">Name</label>
+          <input 
+            formControlName="name" 
+            class="w-full p-2 border border-gray-300 rounded-md" 
+            type="text" 
+            placeholder="Car Name" />
         </div>
 
         <!-- Type Selection -->
         <div>
-          <label class="block text-gray-700 mb-2">Type</label>
+          <label class="block text-gray-700 font-medium">Type</label>
           <select formControlName="type" class="w-full p-2 border border-gray-300 rounded-md">
             <option *ngFor="let type of listOfType" [value]="type">{{ type }}</option>
           </select>
@@ -162,7 +160,7 @@
 
         <!-- Transmission Selection -->
         <div>
-          <label class="block text-gray-700 mb-2">Transmission</label>
+          <label class="block text-gray-700 font-medium">Transmission</label>
           <select formControlName="transmission" class="w-full p-2 border border-gray-300 rounded-md">
             <option *ngFor="let transmission of listOfTransmission" [value]="transmission">{{ transmission }}</option>
           </select>
@@ -170,7 +168,7 @@
 
         <!-- Color Selection -->
         <div>
-          <label class="block text-gray-700 mb-2">Color</label>
+          <label class="block text-gray-700 font-medium">Color</label>
           <select formControlName="color" class="w-full p-2 border border-gray-300 rounded-md">
             <option *ngFor="let color of listOfColor" [value]="color">{{ color }}</option>
           </select>
@@ -178,26 +176,43 @@
 
         <!-- Year -->
         <div>
-          <label class="block text-gray-700 mb-2">Modal Year</label>
-          <input formControlName="year" class="w-full p-2 border border-gray-300 rounded-md" type="text" placeholder="Year" />
+          <label class="block text-gray-700 font-medium">Modal Year</label>
+          <input 
+            formControlName="year" 
+            class="w-full p-2 border border-gray-300 rounded-md" 
+            type="text" 
+            placeholder="Year" />
         </div>
 
         <!-- Price -->
         <div>
-          <label class="block text-gray-700 mb-2">Price</label>
-          <input formControlName="price" class="w-full p-2 border border-gray-300 rounded-md" type="text" placeholder="Price" />
+          <label class="block text-gray-700 font-medium">Price</label>
+          <input 
+            formControlName="price" 
+            class="w-full p-2 border border-gray-300 rounded-md" 
+            type="text" 
+            placeholder="Price" />
         </div>
 
         <!-- Description -->
-        <div>
-          <label class="block text-gray-700 mb-2">Description</label>
-          <textarea formControlName="description" rows="3" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Description"></textarea>
+        <div class="col-span-1 md:col-span-2">
+          <label class="block text-gray-700 font-medium">Description</label>
+          <textarea 
+            formControlName="description" 
+            rows="3" 
+            class="w-full p-2 border border-gray-300 rounded-md" 
+            placeholder="Description"></textarea>
         </div>
 
         <!-- Update Button -->
-        <button type="button" (click)="updateCar()" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md mt-4 hover:bg-blue-600">
-          Update
-        </button>
+        <div class="col-span-1 md:col-span-2">
+          <button 
+            type="button" 
+            (click)="updateCar()" 
+            class="w-full bg-green-600 text-white py-10 px-2 rounded-md hover:bg-green-700 focus:ring-2 focus:ring-green-400">
+            Update
+          </button>
+        </div>
       </form>
     </div>
   </div>

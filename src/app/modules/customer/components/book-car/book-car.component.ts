@@ -68,7 +68,7 @@ export class BookCarComponent {
   private getCarById() {
     this.service.getCarById(this.carId).subscribe(res => {
       this.car = res;
-      this.car.processedImage = `data:image/jpeg;base64,${res.returnedImage}`;
+    //  this.car.processedImage = `data:image/jpeg;base64,${res.returnedImage}`;
     });
   }
 }

@@ -72,11 +72,12 @@
       </div>
     </div>
   </div> -->
+  <div class=" px-5 py-4 bg-white border rounded-lg shadow dark:bg-white-800">
   <div class="mt-12 p-10">
     <div class="flex flex-col items-center">
       <h1 class="text-xl font-bold text-gray-800 mb-4 text-center">Post Car</h1>
   
-      <form [formGroup]="searchCarForm" class="space-y-6">
+      <form [formGroup]="searchCarForm" class="space-y-6 grid grid-cols-1 lg:grid-cols-3 gap-10">
         <div class="flex flex-col space-y-4">
           <label for="brand" class="text-gray-700">Select a Brand</label>
           <select formControlName="brand" id="brand" class="block w-full py-2 px-4 border rounded-md text-gray-700">
@@ -105,7 +106,7 @@
           </select>
         </div>
   
-        <button type="button" class="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400" (click)="searchCar()">
+        <button type="button" class="w-full py-2 px-4 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400" (click)="searchCar()">
           Search
         </button>
       </form>
@@ -132,4 +133,6 @@
       </div>
     </div>
   </div>
-  
+  </div>
+
+ 
