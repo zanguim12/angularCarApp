@@ -21,6 +21,7 @@ export class PostCarComponent {
   isSpinning: boolean = false
   selectedFile: File | null = null
   imagePreview: string | ArrayBuffer | null = null
+  defaultImage: string =''
   listOfOption: Array<{ label: string; value: string }> = []
   listOfBrands = ['Toyota', 'Honda', 'BMW', 'Mercedes', 'Audi', 'Lexus']
   listOfType = ['Sports Car', 'Diesel', 'Crossover', 'Luxury Car']
@@ -65,6 +66,7 @@ export class PostCarComponent {
         console.log(error)
       }
     )
+    
   }
 
   onFileSelected($event: Event) {

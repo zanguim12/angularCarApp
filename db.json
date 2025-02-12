@@ -31,7 +31,7 @@
   ],
   "cars": [
     {
-      "processedImage": "https://www.mercedes-benz.ca/content/dam/mb-nafta/ca/myco/my22/gt-4dr-coupe/all-vehicles/MBCAN-2022-AMG-GT53-4DR-COUPE-AVP-DR.png",
+      "processedImage": "https://cdnwp.dealerk.com/8d03464a/uploads/sites/2/2023/08/nouveau_renault_espace_e-tech_200_ch_-_bleu_nocturne-1-min.jpg",
       "name": "Mustang",
       "brand": "Ford",
       "type": "Coupe",
@@ -43,28 +43,16 @@
       "id": "2"
     },
     {
-      "id": "3",
-      "name": "Model S",
-      "brand": "Mercedes",
-      "type": "Sports Car",
-      "color": "Red",
-      "transmission": "Automatic",
-      "price": "79",
-      "description": "A luxury electric sedan with impressive performance.",
-      "year": "20242",
-      "processedImage": "https://sf1.autoplus.fr/wp-content/uploads/autoplus/2020/10/tesla-model-2020-prix-baisse-passe-sous-les-80-000.jpeg"
-    },
-    {
       "id": "7",
-      "processedImage": "https://static.euronews.com/articles/stories/08/16/43/08/1200x675_cmsv2_bcb3be74-5111-51c6-ac7d-173ac98cec6e-8164308.jpg",
-      "brand": "Tesla",
       "name": "Model S",
-      "description": "A luxury electric sedan with impressive performance.",
-      "price": 79999.99,
+      "brand": "Tesla",
+      "type": "Electric",
       "color": "White",
       "transmission": "Automatic",
-      "type": "Electric",
-      "year": 2024
+      "price": 79999.99,
+      "description": "A luxury electric sedan with impressive performance.",
+      "year": 2024,
+      "processedImage": "https://static.euronews.com/articles/stories/08/16/43/08/1200x675_cmsv2_bcb3be74-5111-51c6-ac7d-173ac98cec6e-8164308.jpg"
     },
     {
       "id": "7",
@@ -150,7 +138,7 @@
     {
       "id": "2",
       "userId": "4n3fhx6uv",
-      "carId": "3",
+      "carId": null,
       "date": "2024-11-18",
       "status": "pending"
     }

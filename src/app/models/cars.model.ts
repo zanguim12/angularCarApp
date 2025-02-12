@@ -10,4 +10,3 @@ export interface Car {
     year: number | string;
     processedImage: string;
   }
-  

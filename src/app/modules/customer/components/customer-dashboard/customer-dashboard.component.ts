@@ -18,9 +18,19 @@ export class CustomerDashboardComponent {
 
   cars: any[] = []
   activeSlide: number = 0;
+  currentSlideIndex: number = 0;
+  totalSlides: number = 3;
+  currentSlide = 0;
+
+  images = [
+    { src: '/car1.jpeg', alt: 'Image 1' },
+    { src: '/car2.jpeg', alt: 'Image 2' },
+    { src: '/car3.jpeg', alt: 'Image 3' }
+  ];
 
   ngOnInit() {
     this.getAllCars()
+    
   }
 
   getAllCars() {
@@ -28,16 +38,19 @@ export class CustomerDashboardComponent {
       this.cars = res;
     });
   }
-  goToSlide(index: number) {
+   // Navigue vers une diapositive spécifique
+   goToSlide(index: number) {
     this.activeSlide = index;
   }
 
+  // Passe à la diapositive suivante
   goToNextSlide() {
-    this.activeSlide = (this.activeSlide + 1) % this.cars.length;
+    this.activeSlide = (this.activeSlide + 1) % this.images.length;
   }
 
+  // Revient à la diapositive précédente
   goToPreviousSlide() {
-    this.activeSlide = (this.activeSlide - 1 + this.cars.length) % this.cars.length;
+    this.activeSlide = (this.activeSlide - 1 + this.images.length) % this.images.length;
   }
 
 

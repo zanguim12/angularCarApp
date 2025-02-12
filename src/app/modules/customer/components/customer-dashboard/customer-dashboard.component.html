@@ -1,30 +1,58 @@
-<div class="relative pt-14 lg:px-12">
+<!-- hero section -->
+
+<div class="relative py-12 pt-14 lg:px-12">
   <div
     class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-    aria-hidden="true"
-  ></div>
+    aria-hidden="true">
+  </div>
 
   <!-- Carrousel en arrière-plan -->
-  <div id="default-carousel" class="absolute inset-0 w-50 h-80 z-0" data-carousel="slide">
-    <!-- Conteneur du carrousel -->
-    <div class="relative h-full w-full overflow-hidden rounded-lg">
-      <!-- Élément du carrousel -->
-      <div *ngFor="let car of cars; let i = index" [ngClass]="{'hidden': activeSlide !== i}" class="relative h-full">
-        <img [src]="car.processedImage" alt="{{ car.brand }} {{ car.name }}"
-          class="h-full w-full object-cover opacity-75 group-hover:opacity-100 hover:bg-green-700 transition" loading="lazy" />
-      </div>
+
+  <div class="relative w-full h-[400px] flex items-center justify-center overflow-hidden">
+    <!-- Affiche l'image active -->
+    <div *ngIf="images[activeSlide]" class="w-[1200px] h-full flex items-center justify-center transition-transform duration-500">
+      <img [src]="images[activeSlide].src" [alt]="images[activeSlide].alt" class="w-[1200px] h-full object-cover">
     </div>
+  
+    <!-- Boutons de navigation -->
+    <button (click)="goToPreviousSlide()" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full">
+      &lt; <!-- Flèche gauche -->
+    </button>
+    <button (click)="goToNextSlide()" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full">
+      &gt; <!-- Flèche droite -->
+    </button>
+  
+    <!-- Indicateurs de diapositives -->
+    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+      <button
+        *ngFor="let image of images; let i = index"
+        (click)="goToSlide(i)"
+        class="w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all"
+        [class.bg-opacity-100]="i === activeSlide"
+      ></button>
+    </div>
+  </div>
+  
+  <!-- <div id="default-carousel" class="absolute justify-center inset-0 w-50 h-80 z-10 p-4  py-2" data-carousel="slide"> -->
+    <!-- Conteneur du carrousel -->
+    <!-- <div class="relative h-full w-full overflow-hidden rounded-lg"> -->
+      <!-- Élément du carrousel -->
+      <!-- <div *ngFor="let car of cars; let i = index" [ngClass]="{'hidden': activeSlide !== i}" class="relative h-full">
+        <img [src]="car.processedImage" alt="{{ car.brand }} {{ car.name }}"
+          class="h-full w-full object-cover opacity-100 transition" loading="lazy" />
+      </div>
+    </div> -->
     <!-- Indicateurs de navigation -->
-    <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+    <!-- <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
       <button *ngFor="let slide of [0,1,2,3,4]; let idx = index" 
         type="button" 
         class="w-3 h-3 rounded-full" 
         [ngClass]="{'bg-white': activeSlide === idx}" 
         (click)="goToSlide(idx)">
       </button>
-    </div>
+    </div> -->
     <!-- Contrôles de navigation -->
-    <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" (click)="goToPreviousSlide()">
+    <!-- <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" (click)="goToPreviousSlide()">
       <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50">
         <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
@@ -40,10 +68,9 @@
         <span class="sr-only">Suivant</span>
       </span>
     </button>
-  </div>
-
+  </div> -->
   <!-- Contenu sur le carrousel -->
-  <div class="relative z-10 text-center text-white">
+  <!-- <div class="relative z-10 text-center text-white">
     <h1 class="text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
       Bienvenue chez Angular Car Shop
     </h1>
@@ -58,6 +85,53 @@
         En savoir plus <span aria-hidden="true">→</span></a>
     </div>
   </div>
+</div> -->
+<!-- Section Services -->
+
+<!-- Description du Site -->
+<div class=" container mx-auto text-center p-6 px-14 bg-white">
+  <h1 class="text-2xl md:text-4xl font-bold text-gray-800 mb-4">
+    Achetez votre voiture d’occasion sur<br>LyonsCar </h1>
+  <span class="text-gray-600 text-base md:text-lg">
+    Une large sélection de voitures à des prix imbattables | Toutes contrôlées et reconditionnées | Garantie gratuite d’un an incluse
+  </span>
+</div>
+
+<!-- Avantages -->
+<div class="container mx-auto py-12 grid grid-cols-1 sm:grid-cols-3 gap-8">
+  <!-- Bloc 1 -->
+  <div class="text-center shadow p-6">
+    <img src="/happy-check-64x64-1.svg" alt="Image de voiture" class="mx-auto w-32 h-32 object-cover rounded-full mb-4" />
+    <h2 class="text-lg font-semibold text-gray-800 mb-2">Qualité garantie</h2>
+    <p class="text-gray-600">
+      Nous vendons uniquement des voitures d’occasion qui proviennent de notre propre inventaire. Toutes nos voitures sont soigneusement contrôlées et reconditionnées par nos experts. Et tout cela avec 1 an de garantie.
+    </p>
+  </div>
+  
+  <!-- Bloc 2 -->
+  <div class="text-center shadow p-6">
+    <img src="/quality-hp-64x64-1.svg" alt="Image de voiture" class="mx-auto w-32 h-32 object-cover rounded-full mb-4" />
+    <h2 class="text-lg font-semibold text-gray-800 mb-2">Satisfaction garantie</h2>
+    <p class="text-gray-600">
+      Vous bénéficiez d’une garantie de retour sans frais de 21 jours. Vous avez ainsi le temps d’essayer votre voiture et de vérifier qu’elle convient à vos attentes.
+    </p>
+  </div>
+  
+  <!-- Bloc 3 -->
+  <div class="text-center shadow p-6">
+    <img src="/stock-64x64-1.svg" alt="Image de voiture" class="mx-auto w-32 h-32 object-cover rounded-full mb-4" />
+    <h2 class="text-lg font-semibold text-gray-800 mb-2">Un large choix</h2>
+    <p class="text-gray-600">
+      Nous vous proposons une large sélection de véhicules reconditionnés afin que vous puissiez trouver la voiture qui correspond à votre budget. Choisissez à votre rythme : notre concession en ligne est ouverte 24h/24, 7 jours sur 7.
+    </p>
+  </div>
+</div>
+
+<div class=" container mx-auto text-center p-6 px-12 py-12 bg-white">
+  <h1 class="text-2xl md:text-4xl font-bold text-gray-800 mb-4">Notre sélection </h1>
+  <span class="text-gray-600 text-base md:text-lg">
+    Découvrez notre sélection de la semaine
+  </span>
 </div>
 
 <!-- Section des cartes de voitures -->
@@ -88,6 +162,83 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<div class=" container mx-auto text-center p-6 px-12 py-12 bg-white">
+  <h1 class="text-2xl md:text-4xl font-bold text-gray-800 mb-4">Les guides d’achat Autojack</h1>
+  <span class="text-gray-600 text-base md:text-lg">
+    Obtenez toutes les informations dont vous avez besoin pour trouver la voiture idéale. Nous vous aiderons à faire le bon choix !
+  </span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+  <div> 
+    <a href="#" class="group relative block bg-black">
+      <img
+        alt=""
+        src="https://images.unsplash.com/photo-1603871165848-0aa92c869fa1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=772&q=80"
+        class="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"/>
+      <div class="relative p-4 sm:p-6 lg:p-8">
+        <p class="text-sm font-medium uppercase tracking-widest text-pink-500">Developer</p>
+    
+        <p class="text-xl font-bold text-white sm:text-2xl">Tony Wayne</p>
+    
+        <div class="mt-32 sm:mt-48 lg:mt-64">
+          <div class="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
+            <p class="text-sm text-white">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis perferendis hic asperiores
+              quibusdam quidem voluptates doloremque reiciendis nostrum harum. Repudiandae?
+            </p>
+          </div>
+        </div>
+      </div>
+    </a>        
+  </div>
+  <div> 
+    <a href="#" class="group relative block bg-black">
+      <img
+        alt=""
+        src="https://images.unsplash.com/photo-1603871165848-0aa92c869fa1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=772&q=80"
+        class="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"/>
+      <div class="relative p-4 sm:p-6 lg:p-8">
+        <p class="text-sm font-medium uppercase tracking-widest text-pink-500">Developer</p>
+    
+        <p class="text-xl font-bold text-white sm:text-2xl">Tony Wayne</p>
+    
+        <div class="mt-32 sm:mt-48 lg:mt-64">
+          <div class="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
+            <p class="text-sm text-white">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis perferendis hic asperiores
+              quibusdam quidem voluptates doloremque reiciendis nostrum harum. Repudiandae?
+            </p>
+          </div>
+        </div>
+      </div>
+    </a>        
+  </div>
+  <div> 
+    <a href="#" class="group relative block bg-black">
+      <img
+        alt=""
+        src="https://images.unsplash.com/photo-1603871165848-0aa92c869fa1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=772&q=80"
+        class="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"/>
+      <div class="relative p-4 sm:p-6 lg:p-8">
+        <p class="text-sm font-medium uppercase tracking-widest text-pink-500">Developer</p>
+    
+        <p class="text-xl font-bold text-white sm:text-2xl">Tony Wayne</p>
+    
+        <div class="mt-32 sm:mt-48 lg:mt-64">
+          <div
+            class="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100"
+          >
+            <p class="text-sm text-white">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis perferendis hic asperiores
+              quibusdam quidem voluptates doloremque reiciendis nostrum harum. Repudiandae?
+            </p>
+          </div>
+        </div>
+      </div>
+    </a>        
   </div>
 </div>
 
