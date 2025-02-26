@@ -79,6 +79,7 @@
       "year": 2024
     },
     {
+      "id": "3",
       "name": "Model S",
       "brand": "Tesla",
       "type": "Electric",
@@ -87,8 +88,7 @@
       "price": 79999.99,
       "description": "A luxury electric sedan with impressive performance.",
       "year": 2024,
-      "processedImage": "https://sf1.autoplus.fr/wp-content/uploads/autoplus/2020/10/tesla-model-2020-prix-baisse-passe-sous-les-80-000.jpeg",
-      "id": "3"
+      "processedImage": "https://sf1.autoplus.fr/wp-content/uploads/autoplus/2020/10/tesla-model-2020-prix-baisse-passe-sous-les-80-000.jpeg"
     },
     {
       "id": "7",
