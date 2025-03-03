@@ -27,6 +27,13 @@
       "email": "leonelzanguim4@gmail.com",
       "password": "secure_password",
       "role": "USER"
+    },
+    {
+      "id": "xaes9fv1b",
+      "name": "landry steewe",
+      "email": "landryseetwe@gmail.com",
+      "password": "00",
+      "role": "USER"
     }
   ],
   "cars": [
