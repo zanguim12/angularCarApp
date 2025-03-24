@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { CommonModule } from '@angular/common';
 
-
 @Component({
   selector: 'app-post-car',
   standalone: true,
@@ -18,15 +17,15 @@ import { CommonModule } from '@angular/common';
 })
 export class PostCarComponent {
   postCarForm!: FormGroup;
-  isSpinning: boolean = false
-  selectedFile: File | null = null
-  imagePreview: string | ArrayBuffer | null = null
-  defaultImage: string =''
-  listOfOption: Array<{ label: string; value: string }> = []
-  listOfBrands = ['Toyota', 'Honda', 'BMW', 'Mercedes', 'Audi', 'Lexus']
-  listOfType = ['Sports Car', 'Diesel', 'Crossover', 'Luxury Car']
-  listOfColor = ['Red', 'Blue', 'Brown', 'Green']
-  listOfTransmission = ['Manual', 'Automatic']
+  isSpinning: boolean = false;
+  selectedFile: File | null = null;
+  imagePreview: string | ArrayBuffer | null = null;
+  defaultImage: string = '';
+  
+  listOfBrands = ['Toyota', 'Honda', 'BMW', 'Mercedes', 'Audi', 'Lexus'];
+  listOfType = ['Sports Car', 'Diesel', 'Crossover', 'Luxury Car'];
+  listOfColor = ['Red', 'Blue', 'Brown', 'Green'];
+  listOfTransmission = ['Manual', 'Automatic'];
 
   constructor(
     private fb: FormBuilder,
@@ -37,7 +36,6 @@ export class PostCarComponent {
 
   ngOnInit() {
     this.postCarForm = this.fb.group({
-      // id: [null, Validators.required],
       name: [null, Validators.required],
       brand: [null, Validators.required],
       type: [null, Validators.required],
@@ -46,41 +44,61 @@ export class PostCarComponent {
       price: [null, Validators.required],
       description: [null, Validators.required],
       year: [null, Validators.required],
-      processedImage: [null, Validators.required]
-    })
+      processedImage: [null, Validators.required]  // ✅ Associe l’image au formulaire
+    });
   }
 
   postCar() {
-    this.isSpinning = true
+    this.isSpinning = true;
 
-        console.log(this.postCarForm.value);
+    // Vérifie si une image a été ajoutée (URL ou fichier)
+    if (!this.postCarForm.value.processedImage) {
+      this.message.error("Veuillez ajouter une image de la voiture.");
+      this.isSpinning = false;
+      return;
+    }
+
+    console.log(this.postCarForm.value);
 
     this.adminService.postCar(this.postCarForm.value).subscribe(
       res => {
-        this.message.success('Car posted successfully', { nzDuration: 3000 })
-        this.isSpinning = false
-        this.router.navigateByUrl('/admin/dashboard')
+        this.message.success('Car posted successfully', { nzDuration: 3000 });
+        this.isSpinning = false;
+        this.router.navigateByUrl('/admin/dashboard');
       },
       error => {
-        this.message.error('Error posting car', { nzDuration: 3000 })
-        console.log(error)
+        this.message.error('Error posting car', { nzDuration: 3000 });
+        console.error(error);
+        this.isSpinning = false;
       }
-    )
-    
+    );
   }
 
-  onFileSelected($event: Event) {
-    const target = $event.target as HTMLInputElement
-    this.selectedFile = (target.files as FileList)[0]
-
-    this.previewImage()
+  // 🔹 Quand une URL est entrée
+  onImageUrlChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.imagePreview = input.value;
+    this.postCarForm.patchValue({ processedImage: input.value });
   }
 
-  previewImage() {
-    const reader = new FileReader()
-    reader.onload = () => {
-      this.imagePreview = reader.result
+  // 🔹 Quand un fichier est sélectionné
+  onFileSelected(event: Event) {
+    const target = event.target as HTMLInputElement;
+    if (target.files && target.files.length > 0) {
+      this.selectedFile = target.files[0];
+      this.previewImage();
     }
-    reader.readAsDataURL(this.selectedFile as Blob)
+  }
+
+  // 🔹 Prévisualisation d’un fichier image
+  previewImage() {
+    if (this.selectedFile) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imagePreview = reader.result;
+        this.postCarForm.patchValue({ processedImage: this.imagePreview }); // ✅ Ajoute l’image encodée dans le formulaire
+      };
+      reader.readAsDataURL(this.selectedFile);
+    }
   }
 }

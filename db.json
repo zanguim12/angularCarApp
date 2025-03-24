@@ -86,18 +86,6 @@
       "year": 2024
     },
     {
-      "id": "3",
-      "name": "Model S",
-      "brand": "Tesla",
-      "type": "Electric",
-      "color": "White",
-      "transmission": "Automatic",
-      "price": 79999.99,
-      "description": "A luxury electric sedan with impressive performance.",
-      "year": 2024,
-      "processedImage": "https://sf1.autoplus.fr/wp-content/uploads/autoplus/2020/10/tesla-model-2020-prix-baisse-passe-sous-les-80-000.jpeg"
-    },
-    {
       "id": "7",
       "processedImage": "https://sf1.autoplus.fr/wp-content/uploads/autoplus/2020/10/tesla-model-2020-prix-baisse-passe-sous-les-80-000.jpeg",
       "brand": "Tesla",
@@ -132,6 +120,18 @@
       "year": 2024,
       "processedImage": "https://sf1.autoplus.fr/wp-content/uploads/autoplus/2020/10/tesla-model-2020-prix-baisse-passe-sous-les-80-000.jpeg",
       "id": "3"
+    },
+    {
+      "id": "1b54",
+      "name": "Lyons ",
+      "brand": "Honda",
+      "type": "Sports Car",
+      "color": "Green",
+      "transmission": "Automatic",
+      "price": 4556,
+      "description": "dsetyli;uoutfdrsfbdvasc",
+      "year": 2024,
+      "processedImage": "https://i.gaw.to/content/photos/57/69/576995-un-honda-cr-v-hybride-moins-cher-s-ajoute-a-la-gamme.jpg?1024x640"
     }
   ],
   "bookings": [
