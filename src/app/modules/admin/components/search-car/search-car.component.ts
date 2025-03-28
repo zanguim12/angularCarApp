@@ -41,25 +41,27 @@ export class SearchCarComponent {
 
   searchCar() {
     this.isSpinning = true;
-    // Collect the form values as searchDto
+    
     const searchDto = this.searchCarForm.value;
-
-    console.log(this.searchCar);
-
+    console.log("🔎 Données envoyées à l'API:", searchDto);
+  
     this.service.searchCar(searchDto).subscribe(
       (response) => {
-        this.isSpinning = false; // Stop spinner
+        this.isSpinning = false;
+        console.log("✅ Réponse de l'API:", response);
+  
         if (response && Array.isArray(response)) {
-          this.results = response.map(item => item); // Assign the response to results
+          this.results = response; // Stocker les résultats
         } else {
           this.results = [];
-          console.error('No cars found');
+          console.error('❌ Aucun résultat trouvé');
         }
       },
       (error) => {
-        this.isSpinning = false; // Stop spinner on error
-        console.error('Search error:', error);
+        this.isSpinning = false;
+        console.error('❌ Erreur lors de la recherche:', error);
       }
     );
   }
+  
 }

@@ -51,10 +51,18 @@ export class AdminService {
     return this.http.patch(`${BASIC_URL}/bookings/${bookingId}`, { status });
   }
 
+  // searchCar(searchDto: any): Observable<any> {
+  //   const params = new URLSearchParams(Object.entries(searchDto)).toString();
+  //   return this.http.get(`${BASIC_URL}/cars?${params}`);
+  // }
   searchCar(searchDto: any): Observable<any> {
-    const params = new URLSearchParams(Object.entries(searchDto)).toString();
-    return this.http.get(`${BASIC_URL}/cars?${params}`);
+    console.log("📡 Envoi de la requête à:", `${BASIC_URL}/cars/search`, "avec:", searchDto);
+  
+    return this.http.post(`${BASIC_URL}/cars/search`, searchDto, {
+      headers: this.createAuthorizationHeader(),
+    });
   }
+   
 
   private createAuthorizationHeader(): HttpHeaders {
     let authHeaders: HttpHeaders = new HttpHeaders()
