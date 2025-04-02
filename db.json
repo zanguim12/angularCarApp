@@ -137,17 +137,18 @@
   "bookings": [
     {
       "id": "1",
-      "userId": "1",
-      "carId": "2",
-      "date": "2024-11-20",
-      "status": "confirmed"
+      "carId": 101,
+      "userId": 5,
+      "bookCarStatus": "PENDING",
+      "date": "2025-03-28",
+      "status": "Reject"
     },
     {
       "id": "2",
-      "userId": "4n3fhx6uv",
-      "carId": null,
-      "date": "2024-11-18",
-      "status": "pending"
+      "carId": 102,
+      "userId": 6,
+      "bookCarStatus": "APPROVED",
+      "date": "2025-03-27"
     }
   ]
 }
